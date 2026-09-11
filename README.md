@@ -1,5 +1,7 @@
 # SariPOS
 
+https://saripos.onrender.com
+
 A basic four-page point-of-sale website built with CodeIgniter 4. Customer and user records are intentionally stored in static PHP arrays for this first version.
 
 ## Pages
