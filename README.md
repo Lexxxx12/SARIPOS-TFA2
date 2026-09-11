@@ -28,3 +28,4 @@ This laboratory version does not use a database, per the activity specification.
 ## Deployment
 
 Point the hosting document root to the `public/` directory, run `composer install --no-dev --optimize-autoloader`, copy `env` to `.env`, set `CI_ENVIRONMENT = production`, and set `app.baseURL` to the live HTTPS URL.
+# SARIPOS
