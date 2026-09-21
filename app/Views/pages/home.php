@@ -32,7 +32,7 @@
 <section class="container section">
     <div class="section-heading">
         <div><p class="eyebrow">Quick access</p><h2>Manage your records</h2></div>
-        <p>This prototype uses simple static data while the core interface takes shape.</p>
+        <p>Customer and staff records are loaded from the SariPOS database.</p>
     </div>
     <div class="feature-grid">
         <a class="feature-card" href="<?= site_url('customers') ?>">
@@ -44,7 +44,7 @@
         <a class="feature-card" href="<?= site_url('users') ?>">
             <span class="icon amber" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8"/></svg></span>
             <h3>User Accounts</h3>
-            <p>Review staff usernames, full names, and assigned roles.</p>
+            <p>Review staff usernames, full names, and account creation dates.</p>
             <span class="card-link">Open directory <span>&rarr;</span></span>
         </a>
         <a class="feature-card" href="<?= site_url('about') ?>">

@@ -2,7 +2,7 @@
 
 https://saripos.onrender.com
 
-A basic four-page point-of-sale website built with CodeIgniter 4. Customer and user records are intentionally stored in static PHP arrays for this first version.
+A four-page point-of-sale website built with CodeIgniter 4. Customer and user account records are stored in MySQL and retrieved through CodeIgniter models and Query Builder.
 
 ## Pages
 
@@ -13,21 +13,21 @@ A basic four-page point-of-sale website built with CodeIgniter 4. Customer and u
 
 ## Local setup
 
-Requirements: PHP 8.2 or later and Composer.
+Requirements: PHP 8.2 or later, Composer, and MySQL 8 or compatible MariaDB.
 
 ```bash
 composer install
 cp env .env
+mysql -u root -p < database/saripos.sql
 php spark serve
 ```
 
-Open `http://127.0.0.1:8080` in a browser. The included `env` template and local `.env` use that URL by default. Update `app.baseURL` for your hosted environment.
+Open `http://localhost:8080` in a browser. Before starting the app, edit `.env` if your MySQL database name, username, password, host, or port differs from the included local defaults. Update `app.baseURL` for your hosted environment.
 
 ## Data source
 
-This laboratory version does not use a database, per the activity specification. Its sample records are defined in `Customers::index()` and `Users::index()`, so a database export is not applicable yet.
+The importable database export is at `database/saripos.sql`. It creates the `saripos` database, the `customers` and `users` tables required by TFA2, and six sample records in each table. `CustomerModel` and `UserModel` retrieve the records used by the account-directory pages.
 
 ## Deployment
 
-Point the hosting document root to the `public/` directory, run `composer install --no-dev --optimize-autoloader`, copy `env` to `.env`, set `CI_ENVIRONMENT = production`, and set `app.baseURL` to the live HTTPS URL.
-# SARIPOS
+Point the hosting document root to the `public/` directory, run `composer install --no-dev --optimize-autoloader`, import `database/saripos.sql` into the hosted MySQL service, copy `env` to `.env`, set `CI_ENVIRONMENT = production`, and configure `app.baseURL` plus the `database.default.*` values for the hosting environment. Never commit a `.env` file containing real database credentials.

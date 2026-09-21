@@ -15,13 +15,13 @@
     <div class="table-card">
         <div class="table-wrap">
             <table>
-                <thead><tr><th>Username</th><th>Full name</th><th>Role</th></tr></thead>
+                <thead><tr><th>Username</th><th>Full name</th><th>Date created</th></tr></thead>
                 <tbody>
                 <?php foreach ($users as $user): ?>
                     <tr>
                         <td><code><?= esc($user['username']) ?></code></td>
                         <td><span class="avatar amber-bg"><?= esc(strtoupper(substr($user['full_name'], 0, 1))) ?></span><strong><?= esc($user['full_name']) ?></strong></td>
-                        <td><span class="role-badge"><?= esc($user['role']) ?></span></td>
+                        <td><?= esc(date('M j, Y', strtotime($user['created_at']))) ?></td>
                     </tr>
                 <?php endforeach ?>
                 </tbody>
