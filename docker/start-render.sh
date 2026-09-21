@@ -20,4 +20,15 @@ done
 
 mariadb --user=root < /app/database/saripos.sql
 
+APP_DB_PASSWORD="$(od -An -N16 -tx1 /dev/urandom | tr -d ' \n')"
+
+mariadb --user=root <<SQL
+CREATE OR REPLACE USER 'saripos_app'@'%' IDENTIFIED BY '${APP_DB_PASSWORD}';
+GRANT SELECT ON saripos.* TO 'saripos_app'@'%';
+FLUSH PRIVILEGES;
+SQL
+
+sed -i "s#^database.default.username.*#database.default.username = saripos_app#" /app/.env
+sed -i "s#^database.default.password.*#database.default.password = ${APP_DB_PASSWORD}#" /app/.env
+
 exec php spark serve --host 0.0.0.0 --port "${PORT}"
