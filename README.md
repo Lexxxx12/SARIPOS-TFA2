@@ -1,6 +1,6 @@
 # SariPOS
 
-https://saripos.onrender.com
+**Live application:** [https://saripos.onrender.com](https://saripos.onrender.com)
 
 A four-page point-of-sale website built with CodeIgniter 4. Customer and user account records are stored in MySQL and retrieved through CodeIgniter models and Query Builder.
 
