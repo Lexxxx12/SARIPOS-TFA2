@@ -31,3 +31,5 @@ The importable database export is at `database/saripos.sql`. It creates the `sar
 ## Deployment
 
 Point the hosting document root to the `public/` directory, run `composer install --no-dev --optimize-autoloader`, import `database/saripos.sql` into the hosted MySQL service, copy `env` to `.env`, set `CI_ENVIRONMENT = production`, and configure `app.baseURL` plus the `database.default.*` values for the hosting environment. Never commit a `.env` file containing real database credentials.
+
+The included Docker configuration supports the free Render demonstration deployment by starting a MariaDB-compatible MySQL server in the same container and importing `database/saripos.sql`. Because a free Render service has ephemeral storage, its database resets to the included sample records whenever the container is rebuilt or restarted. Use a managed MySQL service for persistent production data.
